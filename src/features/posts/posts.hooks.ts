@@ -8,6 +8,7 @@ export const usePosts = () => {
     queryFn: () => getPosts(),
   });
 };
+
 export const usePost = (id: Post["id"]) => {
   return useQuery({
     queryKey: ["post", id],

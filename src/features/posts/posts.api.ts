@@ -3,8 +3,10 @@ import type { Post } from "./posts.types";
 
 export const getPosts = async () => {
   const res = await api.get<Post[]>("/posts");
+
   return res.data;
 };
+
 export const getPost = async (id: Post["id"]) => {
   return (await api.get<Post>(`/posts/${id}`)).data;
 };

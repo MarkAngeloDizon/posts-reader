@@ -7,19 +7,16 @@ import {
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Post } from "../posts.types";
+
 const PostRow = ({ post }: { post: Post }) => {
   return (
     <Card size="sm" className="relative">
       <CardHeader>
         <h2
-          className="min-w-0 font-reading text-[1.375rem] leading-[1.25] fo
-nt-normal tracking-[-0.01em] text-balance"
-        >
+          className="min-w-0 font-reading text-[1.375rem] leading-[1.25] font-normal tracking-[-0.01em] text-balance">
           <Link
             to={`/posts/${post.id}`}
-            className="underline-offset-[0.2em] before:absolute before:inset0 before:content-[''] hover:underline focus-visible:outline-2 focus-visible:o
-utline-offset-4 focus-visible:outline-ring"
-          >
+            className="underline-offset-[0.2em] before:absolute before:inset0 before:content-[''] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
             {post.title}
           </Link>
         </h2>
@@ -35,7 +32,9 @@ utline-offset-4 focus-visible:outline-ring"
     </Card>
   );
 };
+
 export default PostRow;
+
 export const PostRowSkeleton = () => {
   return (
     <Card size="sm">
