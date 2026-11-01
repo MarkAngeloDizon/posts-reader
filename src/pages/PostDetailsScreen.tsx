@@ -1,18 +1,23 @@
 import { isAxiosError } from "axios";
 import { Link, useParams } from "react-router";
+
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { usePost } from "@/features/posts/posts.hooks";
 import { gutter } from "@/lib/layout";
+
 const toParagraphs = (body: string) =>
   body
     .split(/\n\s*\n/)
     .map((paragraph) => paragraph.trim())
     .filter(Boolean);
+
 const railEdge = "sm:ml-20";
+
 const PostDetailsScreen = () => {
   const { postId } = useParams();
   const { isPending, isError, error, data, refetch } = usePost(Number(postId));
+
   if (isPending)
     return (
       <div className="mt-12">
@@ -32,8 +37,10 @@ const PostDetailsScreen = () => {
         </div>
       </div>
     );
+
   if (isError) {
     const missing = isAxiosError(error) && error.response?.status === 404;
+
     return (
       <div className={`mt-16 ${gutter}`}>
         <p className="text-sm tabular-nums text-muted-foreground sm:mt-2 sm:text-right">
@@ -58,21 +65,26 @@ const PostDetailsScreen = () => {
                 Try again
               </Button>
             )}
-          </div>{" "}
+          </div>
         </div>
       </div>
     );
   }
+
   const paragraphs = toParagraphs(data.body ?? "");
+
   return (
     <article className="mt-12">
       <p className="text-sm tabular-nums text-muted-foreground">#{data.id}</p>
+
       <h1 className="mt-3 font-reading text-[2.125rem] leading-[1.04] tracking-[-0.025em] text-balance sm:text-[3rem]">
         {data.title}
       </h1>
-      <div className="mt-7 flex flex-wrap items-center justify-between gap-x6 gap-y-2 border-t border-border pt-4 text-sm text-muted-foreground">
+
+      <div className="mt-7 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-border pt-4 text-sm text-muted-foreground">
         {typeof data.userId === "number" && <span>Author {data.userId}</span>}
       </div>
+
       {paragraphs.length > 0 && (
         <div
           className={`mt-9 max-w-[34rem] font-reading text-[1.0625rem] leading-[1.75] text-foreground/90 ${railEdge}`}
