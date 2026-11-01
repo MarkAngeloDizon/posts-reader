@@ -5,6 +5,8 @@ import PostRow, { PostRowSkeleton } from "./Post";
 const PostList = () => {
   const { isPending, isError, error, data, refetch } = usePosts();
 
+  console.log(typeof data, data);
+
   if (isPending)
     return (
       <div className="mt-10">
