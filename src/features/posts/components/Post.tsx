@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+
 import {
   Card,
   CardAction,
@@ -12,11 +13,11 @@ const PostRow = ({ post }: { post: Post }) => {
   return (
     <Card size="sm" className="relative">
       <CardHeader>
-        <h2
-          className="min-w-0 font-reading text-[1.375rem] leading-[1.25] font-normal tracking-[-0.01em] text-balance">
+        <h2 className="min-w-0 font-reading text-[1.375rem] leading-[1.25] font-normal tracking-[-0.01em] text-balance">
           <Link
             to={`/posts/${post.id}`}
-            className="underline-offset-[0.2em] before:absolute before:inset0 before:content-[''] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
+            className="underline-offset-[0.2em] before:absolute before:inset-0 before:content-[''] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          >
             {post.title}
           </Link>
         </h2>
@@ -25,10 +26,10 @@ const PostRow = ({ post }: { post: Post }) => {
         </CardAction>
       </CardHeader>
       <CardContent>
-        <p className="line-clamp-2 text-[0.9375rem] leading-[1.6] text-mutedforeground">
+        <p className="line-clamp-2 text-[0.9375rem] leading-[1.6] text-muted-foreground">
           {post.body}
         </p>
-      </CardContent>{" "}
+      </CardContent>
     </Card>
   );
 };
@@ -42,6 +43,7 @@ export const PostRowSkeleton = () => {
         <Skeleton className="h-6 rounded-md" />
         <Skeleton className="h-6 w-2/3 rounded-md" />
       </CardHeader>
+
       <CardContent className="flex flex-col gap-2">
         <Skeleton className="h-4 rounded-md" />
         <Skeleton className="h-4 w-5/6 rounded-md" />

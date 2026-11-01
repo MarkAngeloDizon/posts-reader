@@ -26,9 +26,11 @@ const Layout = () => {
           )}
           <ModeToggle />
         </header>
+
         <Outlet />
       </div>
     </div>
   );
 };
+
 export default Layout;

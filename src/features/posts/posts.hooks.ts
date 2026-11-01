@@ -15,3 +15,4 @@ export const usePost = (id: Post["id"]) => {
     queryFn: () => getPost(id),
   });
 };
+
