@@ -1,4 +1,5 @@
 import PostList from "@/features/posts/components/PostList";
+
 const HomeScreen = () => {
   return (
     <>
@@ -7,4 +8,5 @@ const HomeScreen = () => {
     </>
   );
 };
+
 export default HomeScreen;
